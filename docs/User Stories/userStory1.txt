@@ -1,0 +1,4 @@
+As a user, I want to see what songsartists fit the area I'm in so that I have some music to listen to while I'm here.
+I'll know when this is done when…
+- the app fetches my location
+- and returns a Spotify playlist of said songs/artists

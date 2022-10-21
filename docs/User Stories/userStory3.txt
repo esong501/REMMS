@@ -1,0 +1,5 @@
+As a user, I want to save my personal info on my account so that I can review my travel history and share with friends.
+I'll know when this is done when…
+- I'm able to log in,
+- save info and review past trips,
+- and upload photos

@@ -1,0 +1,6 @@
+As a user, I want to curate a schedule of attractions/spots to hit and a playlist to listen to so that I can personalize my experience for myself 
+and any friends I may be travelling with. I'll know when this is done when…
+- I can save a list of places to go,
+- I can save a playlist,
+- put them together into a "journey",
+- and share with friends

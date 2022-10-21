@@ -1,0 +1,5 @@
+As a user, I want to share my own and read other user’s comments on the local spot so that I can share my thoughts and decide whether
+to visit and even learn history about the spot. I'll know when this is done when…
+- I can comment on a place I've been to,
+- I can view user comments on a location, 
+- and vote on helpfulness/reply

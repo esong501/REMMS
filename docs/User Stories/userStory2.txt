@@ -1,0 +1,7 @@
+As a user, I want to see things to do in my area so that I can go and experience local hot spots.
+I'll know when this is done when…
+- the app fetches my location,
+- returns a list of things to do,
+- the app categorizes activities to do in my area (e.g. Restaurants, theaters, parks, zoos, etc),
+- and pins them on a map (think searching on Google Maps?)
+
