@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import {Buffer} from 'buffer';
+import { Buffer } from 'buffer';
 
 function App() {
 
-  var client_id = 'CLIENT_ID';
-  var client_secret = 'CLIENT_SECRET';
+  var client_id = process.env.REACT_APP_CLIENT_ID;
+  var client_secret = process.env.REACT_APP_CLIENT_SECRET;
 
   // var authOptions = {
   //   {
