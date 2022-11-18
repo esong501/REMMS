@@ -1,26 +1,42 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
-import LocationSearch from './components/LocationSearch/LocationSearch';
+import {CssBaseline, Grid} from '@mui/material';
+import { getPlacesData } from './api';
+
+import Header from './components/Header/Header';
+import List from './components/List/List';
 
 function App() {
+  const [type, setType] = useState('attractions');
+  const [places, setPlaces] = useState([]);
+
+  const [coordinates, setCoordinates] = useState({});
+  const [bounds, setBounds] = useState({});
+  
+  useEffect(() => {
+     getPlacesData(type, bounds.bl_lat, bounds.tr_lat, bounds.bl_long, bounds.tr_long)
+       .then((data) =>{
+         console.log(data)
+         setPlaces(data)
+       })
+  }, [type, coordinates, bounds]);
+
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-    <LocationSearch/>
+   <>
+   <CssBaseline />
+   <Header 
+    setCoordinates={setCoordinates} 
+    setBounds={setBounds}
+    />
+   <Grid container spacing={3} style={{width :'100%'}}>
+    <Grid item xs={12}>
+      <List 
+      places ={places}
+      type = {type}
+      setType={setType}/>
+    </Grid>
+   </Grid>
+   </>
   );
 }
 
