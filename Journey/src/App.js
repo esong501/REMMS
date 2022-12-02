@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import LocationSearch from './components/LocationSearch/LocationSearch';
+import Home from './components/Home/Home';
 
 function App() {
   return (
@@ -21,10 +22,10 @@ function App() {
     //   </header>
     // </div>
     <div>
-      <form action="./../../../../post" method="post" className="form">
+      {/* <form action="./../../../../post" method="post" className="form">
         <button type="submit">Connected?</button>
-      </form>
-      <LocationSearch/>
+      </form> */}
+      <Home />
     </div>
   );
 }
