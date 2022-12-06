@@ -1,23 +1,34 @@
-import { styled } from '@mui/material';
+const formControl={
+  margin: 1, minWidth: 120, marginBottom: '30px',
+}
 
-export default styled((theme) => ({
-  formControl: {
-    margin: theme.spacing(1), minWidth: 20, marginBottom: '30px',
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  loading: {
-    height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center',
-  },
-  container: {
-    padding: '40px',
-    spacing: 8,
-  },
-  marginBottom: {
-    marginBottom: '30px',
-  },
-  list: {
-    height: '35vh', overflow: 'auto',
-  },
-}));
+const selectEmpty = {
+  marginTop: 4,
+}
+
+const loading = {
+  height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center',
+}
+
+const container = {
+  padding: '40px',
+  spacing: 8,
+}
+
+const marginBottom = {
+  marginBottom: '30px',
+}
+
+const list = {
+  height: '80vh', overflow: 'auto',
+}
+
+export const classes = {
+  formControl: formControl,
+  selectEmpty: selectEmpty,
+  loading : loading,
+  container : container,
+  marginBottom: marginBottom,
+  list:list
+
+}

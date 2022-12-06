@@ -2,7 +2,7 @@ import React from 'react';
 import{Box, Typography, Button, Card, CardMedia, CardActions, Chip, CardContent} from '@mui/material';
 
 
-import useStyles from './styles';
+import {classes} from './styles';
 
 
 const PlaceDetails = ({place}) => {
