@@ -6,6 +6,7 @@ function Home() {
     const [message, setMessage] = useState("");
     const [connected, setConnected] = useState(false);
     const [url, setUrl] = useState("");
+    const [lpost, setLpost] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:8080/message")
@@ -23,6 +24,17 @@ function Home() {
         .then((res) => res.json())
         .then((data) => setUrl(data.message));
     }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/locations", { 
+            method: 'post', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({type:"a", params: "b"}) })
+        .then((res) => res.json())
+        .then((data) => setLpost(data.message));
+    },[])
 
     return (
         <div>
@@ -42,9 +54,7 @@ function Home() {
             >
                 {message}
             </a>
-            {/* <form action="./../../../../post" method="post" className="form">
-                <button type="submit">Connected?</button>
-            </form> */}
+            <button onClick={() => {console.log(lpost)}}/>
             <div>
             </div>
             </header>
