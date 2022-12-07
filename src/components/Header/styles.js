@@ -6,7 +6,6 @@ const search = {
   backgroundColor: 'aliceblue',
   padding: 4,
   borderRadius: 0,
-  // [theme.breakpoints.up('sm')]: { marginLeft: theme.spacing(3), width: 'auto' },
 }
 
 const searchIcon= {
@@ -19,12 +18,17 @@ const inputRoot = {
 
 
 const toolbar = {
-  display: 'flex', justifyContent: 'space-between'
+  display: 'flex', justifyContent: 'space-between',color: 'black', backgroundImage:'linear-gradient(to right bottom, #d37300, #e54543, #d72478, #a339a8, #2b52c3)',
+}
+
+const journey = {
+  font: "Roboto Slab" ,bodyFontFamily: 'sans-serif', padding : '1em 2em',
 }
 
 export const classes = {
 search: search,
 searchIcon: searchIcon,
 inputRoot: inputRoot,
-toolbar: toolbar
+toolbar: toolbar,
+journey: journey,
 }

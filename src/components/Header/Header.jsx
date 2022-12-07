@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Autocomplete } from '@react-google-maps/api';
 import { AppBar,Toolbar,Typography, InputBase, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import {classes} from './styles.js';
+import {classes}  from './styles.js';
 
 const Header = ({setCoordinates, setBounds}) => {
     const [autocomplete, setAutocomplete] = useState(null);
@@ -26,15 +26,15 @@ const Header = ({setCoordinates, setBounds}) => {
     return(
         <AppBar position="static">
             <Toolbar style={classes.toolbar}>
-                <Typography variant="h5" style={classes.title}>
-                    Journey
+                <Typography variant="h5" style={classes.journey}>
+                    <i>Journey</i>
                 </Typography>
                 <Box display="flex">
-                    <Typography variant='h6' style={classes.title}>
-                        Explore new places
+                    <Typography variant='h6' >
+                        Exploring
                     </Typography>
                     <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-                        <div style={classes.search}>
+                        <div style= {classes.search}>
                             <div style={classes.searchIcon}>
                                 <SearchIcon />
                             </div>

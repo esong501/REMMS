@@ -11,7 +11,7 @@ const List = ({places, type, setType}) => {
         <div style={classes.container}>
             <Typography variant='h5'>
                 Attractions & Restaurants around you
-                <FormControl style={classes.fromControl}>
+                <FormControl style={classes.formControl}>
                     <InputLabel>Type</InputLabel>
                     <Select value={type} onChange={(event) => setType(event.target.value)}>
                         <MenuItem value = "attractions">Attractions</MenuItem>

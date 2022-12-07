@@ -3,8 +3,9 @@ import './App.css';
 import {CssBaseline, Grid} from '@mui/material';
 import { getPlacesData } from './api';
 
-import Header from './components/Header/Header';
-import List from './components/List/List';
+import Header from './component/Header/Header';
+import List from './component/List/List';
+import Planner from './component/Planner/Planner';
 
 function App() {
   const [type, setType] = useState('attractions');
@@ -29,11 +30,14 @@ function App() {
     setBounds={setBounds}
     />
    <Grid container spacing={3} style={{width :'100%'}}>
-    <Grid item xs={12}>
+    <Grid item xs={12} md = {5} >
       <List 
       places ={places}
       type = {type}
       setType={setType}/>
+    </Grid>
+    <Grid item xs={12} md= {7} style={{ display: 'flex'}}>
+      <Planner/>
     </Grid>
    </Grid>
    </>
