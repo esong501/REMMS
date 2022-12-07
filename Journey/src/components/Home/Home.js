@@ -1,6 +1,7 @@
 import logo from './../../logo.svg';
 import './Home.css';
 import { useEffect, useState } from 'react';
+import ResponsiveAppBar from '../Navbar/Navbar';
 
 function Home() {
     const [message, setMessage] = useState("");
@@ -38,13 +39,15 @@ function Home() {
 
     return (
         <div>
+            <ResponsiveAppBar/>
+            {console.log(connected)}
+            {console.log(message)}
             <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
                 Edit <code>src/App.js</code> and save to reload.
             </p>
             <div>
-                {connected === false ? <p>Searching for server...</p> : <p>Connected!</p>}
             </div>
             <a
                 className="App-link"
@@ -62,4 +65,4 @@ function Home() {
       );
 }
     
-    export default Home;
+export default Home;
