@@ -6,7 +6,7 @@ import { getPlacesData } from './api';
 import Header from './component/Header/Header';
 import List from './component/List/List';
 import Planner from './component/Planner/Planner';
-
+//test
 function App() {
   const [type, setType] = useState('attractions');
   const [places, setPlaces] = useState([]);
