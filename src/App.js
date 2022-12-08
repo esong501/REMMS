@@ -3,9 +3,9 @@ import './App.css';
 import {CssBaseline, Grid} from '@mui/material';
 import { getPlacesData } from './api';
 
-import Header from './component/Header/Header';
-import List from './component/List/List';
-import Planner from './component/Planner/Planner';
+import Header from './components/Header/Header';
+import List from './components/List/List';
+import Planner from './components/Planner/Planner';
 //test
 function App() {
   const [type, setType] = useState('attractions');

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import '../../App.css';
 import {CssBaseline, Grid} from '@mui/material';
-import { getPlacesData } from './api';
+import { getPlacesData } from '../../api';
 
-import Header from './component/Header/Header';
-import List from './component/List/List';
-import Planner from './component/Planner/Planner';
+import Header from '../Header/Header';
+import List from '../List/List';
+import Planner from '../Planner/Planner';
 
 function App() {
   const [type, setType] = useState('attractions');
