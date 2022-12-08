@@ -1,26 +1,63 @@
 import logo from './../../logo.svg';
-import './Home.css'
-import { loginUrl } from './../../App'
+import './Home.css';
+import { useEffect, useState } from 'react';
+import ResponsiveAppBar from '../Navbar/Navbar';
 
 function Home() {
+    const [message, setMessage] = useState("");
+    const [connected, setConnected] = useState(false);
+    const [url, setUrl] = useState("");
+    const [lpost, setLpost] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:8080/message")
+        .then((res) => res.json())
+        .then((data) => setMessage(data.message));
+    }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/post", { method: 'post' })
+        .then((res) => setConnected(true));
+    },[])
+
+    useEffect(() => {
+        fetch("http://localhost:8080/spotify")
+        .then((res) => res.json())
+        .then((data) => setUrl(data.message));
+    }, []);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/locations", { 
+            method: 'post', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({type:"a", params: "b"}) })
+        .then((res) => res.json())
+        .then((data) => setLpost(data.message));
+    },[])
+
     return (
         <div>
+            <ResponsiveAppBar/>
+            {console.log(connected)}
+            {console.log(message)}
             <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
                 Edit <code>src/App.js</code> and save to reload.
             </p>
+            <div>
+            </div>
             <a
                 className="App-link"
-                href={loginUrl}
+                href={url}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Log into Spotify
+                {message}
             </a>
-            <form action="./../../../../post" method="post" className="form">
-                <button type="submit">Connected?</button>
-            </form>
+            <button onClick={() => {console.log(lpost)}}/>
             <div>
             </div>
             </header>
@@ -28,4 +65,4 @@ function Home() {
       );
 }
     
-    export default Home;
+export default Home;
