@@ -1,4 +1,4 @@
-require('dotenv').config({ path:__dirname+'./../.env' })
+require('dotenv').config({ path:__dirname+'./../../.env' })
 
 const authEndpoint = "https://accounts.spotify.com/authorize";
 

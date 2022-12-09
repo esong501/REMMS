@@ -26,8 +26,7 @@ app.post("/post", (req, res) => {
 app.post("/locations", (req, res) => {
     const bounds = req.body.params;
     console.log(bounds)
-    getPlacesData(req.body.type, bounds.bl_lat, bounds.tr_lat, bounds.bl_long, bounds.tr_long)
-    .then(res.json({ locations: data }));
+    res.json({ locations: getPlacesData(req.body.type, bounds.bl_lat, bounds.tr_lat, bounds.bl_long, bounds.tr_long) });
 });
 
 const PORT = process.env.PORT || 8080;
