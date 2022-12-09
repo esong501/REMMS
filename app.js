@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-const { loginUrl } = require("./srcb/spotifyauth");
+const { loginUrl } = require("./srcb/spotify/spotifyauth");
+
+const { getPlacesData } = require("./srcb/api/index")
 
 app.use(cors());
 app.use(express.json());
@@ -22,8 +24,10 @@ app.post("/post", (req, res) => {
 });
 
 app.post("/locations", (req, res) => {
-    console.log(req.body);
-    res.json({ message: req.body.type });
+    const bounds = req.body.params;
+    console.log(bounds)
+    getPlacesData(req.body.type, bounds.bl_lat, bounds.tr_lat, bounds.bl_long, bounds.tr_long)
+    .then(res.json({ locations: data }));
 });
 
 const PORT = process.env.PORT || 8080;

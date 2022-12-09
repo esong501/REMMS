@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import {CssBaseline, Grid} from '@mui/material';
-import { getPlacesData } from './api';
 
 import Header from './components/Header/Header';
 import List from './components/List/List';
@@ -21,9 +20,14 @@ function App() {
     //      console.log(data)
     //      setPlaces(data)
     //    })
-    fetch("http://localhost:8080/locations", {method: 'post', body: JSON.stringify({type: type, params: bounds})})
+    fetch("http://localhost:8080/locations", {
+      method: 'post', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({type: type, params: bounds})})
     .then((res) => res.json())
-    // .then((data) => setMessage(data.message));
+    .then((data) => setPlaces(data.locations));
   }, [type, coordinates, bounds]);
 
   return (
