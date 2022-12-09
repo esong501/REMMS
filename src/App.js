@@ -7,6 +7,8 @@ import Login from './components/LoginLogoutAuth0/Login'
 import Logout from './components/LoginLogoutAuth0/Logout'
 import LoginLogout from './components/LoginLogoutAuth0/LoginLogout'
 
+import TravelComponent from './TravelComponent'
+
 import Header from './components/Header/Header';
 import List from './components/List/List';
 import Planner from './components/Planner/Planner';
@@ -33,24 +35,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginLogout />} />
 
-      <Route path="/travel" element={<div><>
-                                             <CssBaseline />
-                                             <Header
-                                              setCoordinates={setCoordinates}
-                                              setBounds={setBounds}
-                                              />
-                                             <Grid container spacing={3} style={{width :'100%'}}>
-                                              <Grid item xs={12} md = {5} >
-                                                <List
-                                                places ={places}
-                                                type = {type}
-                                                setType={setType}/>
-                                              </Grid>
-                                              <Grid item xs={12} md= {7} style={{ display: 'flex'}}>
-                                                <Planner/>
-                                              </Grid>
-                                             </Grid>
-                                             </><Logout/ ></div>} />
+      <Route path="/travel" element={<html><TravelComponent /><Logout/ ></html>} />
 
     </Routes>
   );
