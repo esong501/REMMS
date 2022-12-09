@@ -5,6 +5,8 @@ import { getPlacesData } from './api';
 
 import Header from './components/Header/Header';
 import List from './components/List/List';
+import LocationSearch from './components/LocationSearch/LocationSearch';
+import Home from './components/Home/Home';
 
 function App() {
   const [type, setType] = useState('attractions');
@@ -62,6 +64,9 @@ function App() {
     </Grid>
    </Grid>
    </>
+    // <div>
+    //   <Home />
+    // </div>
   );
 }
 

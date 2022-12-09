@@ -1,8 +1,20 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
-app.use(express.json());       // to support JSON-encoded bodies
+const { loginUrl } = require("./srcb/spotifyauth");
+
+app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded()); // to support URL-encoded bodies
+
+app.get('/message', (req, res) => {
+    res.json({ message: "Hello from server!" });
+});
+
+app.get('/spotify', (req, res) => {
+    res.json({ message: loginUrl });
+});
 
 app.post("/post", (req, res) => {
     console.log("Connected to React");
@@ -10,10 +22,12 @@ app.post("/post", (req, res) => {
 });
 
 app.post("/locations", (req, res) => {
-    console.log(req.body.type);
-    res.redirect("/");
+    console.log(req.body);
+    res.json({ message: req.body.type });
 });
 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
+
+// console.log(sinfo.loginUrl)
