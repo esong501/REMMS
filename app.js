@@ -4,6 +4,8 @@ const app = express();
 
 const { loginUrl } = require("./srcb/spotify/spotifyauth");
 
+const { maps } = require("./srcb/gmaps/gmapsauth");
+
 const { getPlacesData } = require("./srcb/api/index")
 
 app.use(cors());
@@ -18,6 +20,10 @@ app.get('/spotify', (req, res) => {
     res.json({ message: loginUrl });
 });
 
+app.get('/maps', (req, res) => {
+    res.json({ message: maps });
+});
+
 app.post("/post", (req, res) => {
     console.log("Connected to React");
     res.redirect("/");
@@ -27,7 +33,7 @@ app.post("/locations", (req, res) => {
     const bounds = req.body.params;
     let locations = [];
     getPlacesData(req.body.type, bounds.bl_lat, bounds.tr_lat, bounds.bl_long, bounds.tr_long).then((data) => {locations = data});
-    console.log(locations)
+    // console.log(locations)
     res.json({ locations: locations });
 });
 

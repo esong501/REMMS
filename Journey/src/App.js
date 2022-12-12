@@ -31,46 +31,24 @@ function App() {
   }, [type, coordinates, bounds]);
 
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    <>
+    <CssBaseline />
+    <Header 
+      setCoordinates={setCoordinates} 
+      setBounds={setBounds}
+      />
+    <Grid container spacing={3} style={{width :'100%'}}>
+      <Grid item xs={12}>
+        <List 
+        places ={places}
+        type = {type}
+        setType={setType}/>
+      </Grid>
+    </Grid>
+    </>
     // <div>
-    //   <form action="./../../../../post" method="post" className="form">
-    //     <button type="submit">Connected?</button>
-    //   </form>
-    //   <LocationSearch/>
+    //   <Home />
     // </div>
-  //  <>
-  //  <CssBaseline />
-  //  <Header 
-  //   setCoordinates={setCoordinates} 
-  //   setBounds={setBounds}
-  //   />
-  //  <Grid container spacing={3} style={{width :'100%'}}>
-  //   <Grid item xs={12}>
-  //     <List 
-  //     places ={places}
-  //     type = {type}
-  //     setType={setType}/>
-  //   </Grid>
-  //  </Grid>
-  //  </>
-    <div>
-      <Home />
-    </div>
   );
 }
 

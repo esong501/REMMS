@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { Autocomplete } from '@react-google-maps/api';
+import React, {useState, useEffect} from 'react';
+import { Autocomplete, LoadScript } from '@react-google-maps/api';
 import { AppBar,Toolbar,Typography, InputBase, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import useStyles from './styles.js';
@@ -7,6 +7,13 @@ import useStyles from './styles.js';
 const Header = ({setCoordinates, setBounds}) => {
     const classes = useStyles();
     const [autocomplete, setAutocomplete] = useState(null);
+    const [mUrl, setMUrl] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:8080/maps")
+        .then((res) => res.json())
+        .then((data) => setMUrl(data.message));
+    }, []);
 
     const onLoad = (autoC) => { setAutocomplete(autoC);
     }
@@ -34,6 +41,10 @@ const Header = ({setCoordinates, setBounds}) => {
                     <Typography variant='h6' className={classes.title}>
                         Explore new places
                     </Typography>
+                    <LoadScript
+                        googleMapsApiKey={mUrl}
+                        libraries={["places"]}
+                        >
                     <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
                         <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -42,6 +53,7 @@ const Header = ({setCoordinates, setBounds}) => {
                             <InputBase placeholder="Search..." classes={{root:classes.inputRoot, input: classes.inputInput}} />
                         </div>
                     </Autocomplete>
+                    </LoadScript>
                 </Box>
 
             </Toolbar>
